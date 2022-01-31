@@ -3,7 +3,7 @@ name: JSLint checks test
 on: push
 
 jobs:
-  tests:
+  tests1:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

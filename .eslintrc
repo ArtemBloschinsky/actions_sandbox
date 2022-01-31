@@ -1,0 +1,47 @@
+﻿{
+  "extends": ["eslint:recommended"],
+  "rules": {
+    // Google
+    "no-cond-assign": 0,
+    "no-irregular-whitespace": 2,
+    "no-unexpected-multiline": 2,
+    "valid-jsdoc": [2, {
+      "requireParamDescription": false,
+      "requireReturnDescription": false,
+      "requireReturn": false,
+      "prefer": {"returns": "return"}
+    }],
+    "curly": 2,
+    "newline-per-chained-call": [
+      "error",
+      { "ignoreChainWithDepth": 2 }
+    ],
+    "operator-linebreak": ["error", "before"],
+    "padding-line-between-statements": [
+      "error",
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": [
+          "block",
+          "block-like",
+          "cjs-export",
+          "class",
+          "const",
+          "export",
+          "import",
+          "let",
+          "var"
+        ]
+      }
+    ],
+    "brace-style": "error"
+  },
+  "globals": {
+    "window": true,
+    "jQuery": true,
+    "$": true,
+    "document": true,
+    "SUGAR": true
+  }
+}
