@@ -27,5 +27,6 @@ jobs:
         with:
           node-version: "12.x"
       - uses: xt0rted/stylelint-problem-matcher@v1
+      - run: npm install
       - run: npm ci
       - run: npm test
