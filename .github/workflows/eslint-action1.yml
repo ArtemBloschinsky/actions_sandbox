@@ -3,10 +3,19 @@ name: Fornt-End-Code-Style-Checks
 on: push
 
 jobs:
-  tests2:
+  js-code-check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: stefanoeb/eslint-action@1.0.2
         with:
           files: src/
+
+  style-check:
+    name: stylelint
+    runs-on: ubuntu-latest
+    needs: [js-code-check]
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions-hub/stylelint@master
