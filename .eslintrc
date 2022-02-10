@@ -1,9 +1,9 @@
 ﻿{
   "extends": ["eslint:recommended"],
+  "env": {
+    "es6": true
+  },
   "rules": {
-    "env": {
-      "es6": true
-    },
     // Google
     "no-cond-assign": 0,
     "no-irregular-whitespace": 2,
