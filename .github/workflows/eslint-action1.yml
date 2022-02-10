@@ -1,32 +1,32 @@
-name: Fornt-End-Code-Style-Checks
-
-on: push
-
-jobs:
-  js-code-check:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: stefanoeb/eslint-action@1.0.2
-        with:
-          files: src/
-
-  style-check:
-    name: stylelint
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v1
-      - uses: actions-hub/stylelint@master
-
-  another-style-check:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: "12.x"
-      - uses: xt0rted/stylelint-problem-matcher@v1
-      - run: npm install
-      - run: npm ci
-      - run: npm test
+#name: Fornt-End-Code-Style-Checks
+#
+#on: push
+#
+#jobs:
+#  js-code-check:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v2
+#      - uses: stefanoeb/eslint-action@1.0.2
+#        with:
+#          files: src/
+#
+#  style-check:
+#    name: stylelint
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      - uses: actions/checkout@v1
+#      - uses: actions-hub/stylelint@master
+#
+#  another-style-check:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v2
+#      - uses: actions/setup-node@v1
+#        with:
+#          node-version: "12.x"
+#      - uses: xt0rted/stylelint-problem-matcher@v1
+#      - run: npm install
+#      - run: npm ci
+#      - run: npm test
