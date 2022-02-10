@@ -3,14 +3,14 @@ name: JSLint checks test
 on: push
 
 jobs:
-  tests1:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Installing node_modules
-        run: npm install -g
-      - name: Run ESLint
-        run: eslint . --ext .js,.jsx,.ts,.tsx
+#  tests1:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v2
+#      - name: Installing node_modules
+#        run: npm install -g
+#      - name: Run ESLint
+#        run: eslint . --ext .js,.jsx,.ts,.tsx
 
   variation-2:
     runs-on: ubuntu-latest
@@ -19,4 +19,7 @@ jobs:
       - name: Install modules
         run: yarn
       - name: Run ESLint
-        run: yarn run eslint . --ext .js,.jsx,.ts,.tsx
+        run: |
+            CHANGED_FILES=$(git diff --name-only --diff-filter=ACMRTUXB HEAD~..HEAD ':(exclude)www/crm*')
+            [ -z "$CHANGED_FILES" ] && exit 0
+            yarn run eslint . --ext .js $CHANGED_FILES
