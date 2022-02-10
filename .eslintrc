@@ -1,6 +1,12 @@
 ﻿{
   "extends": ["eslint:recommended"],
   "rules": {
+    "parserOptions": {
+      "ecmaVersion": 2017
+    },
+    "env": {
+      "es6": true
+    },
     // Google
     "no-cond-assign": 0,
     "no-irregular-whitespace": 2,
