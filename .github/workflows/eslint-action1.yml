@@ -1,15 +1,29 @@
-#name: Fornt-End-Code-Style-Checks
-#
-#on: push
-#
-#jobs:
-#  js-code-check:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v2
-#      - uses: stefanoeb/eslint-action@1.0.2
-#        with:
-#          files: src/
+name: Fornt-End-Code-Style-Checks
+
+on: push
+
+jobs:
+  js-code-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        id: step_one
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Get Diff files
+        id: step_two
+        run: |
+          CHANGED_FILES=$(git diff --name-only --diff-filter=ACMRTUXB HEAD~..HEAD ':(exclude)www/crm*')
+          [ -z "$CHANGED_FILES" ] && exit 0
+          echo "changed_files=$CHANGED_FILES" >> $GITHUB_ENV
+
+      - name: Style check
+        id: step_three
+        uses: stefanoeb/eslint-action@1.0.2
+        with:
+          files: ${{ env.changed_files }}
 #
 #  style-check:
 #    name: stylelint
