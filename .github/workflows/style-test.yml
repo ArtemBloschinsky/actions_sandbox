@@ -28,4 +28,4 @@ jobs:
             yarn run eslint $CHANGED_FILES
 
       - name: Run stylelint
-        run: yarn run stylelint "**/*.scss"
+        run: yarn run stylelint "**/*.css"
