@@ -17,7 +17,9 @@ jobs:
         run: |
           CHANGED_FILES=$(git diff --name-only --diff-filter=ACMRTUXB HEAD~..HEAD ':(exclude)www/crm*')
           [ -z "$CHANGED_FILES" ] && exit 0
-          echo "changed_files=$CHANGED_FILES" >> $GITHUB_ENV
+          echo ‘changed_files<<EOF’ >> $GITHUB_ENV
+          echo "$CHANGED_FILES" >> $GITHUB_ENV
+          echo 'EOF' >> $GITHUB_ENV
 
       - name: Style check
         id: step_three
