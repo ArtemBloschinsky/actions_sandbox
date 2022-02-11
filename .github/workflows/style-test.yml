@@ -26,4 +26,8 @@ jobs:
             CHANGED_FILES=$(git diff --name-only --diff-filter=ACMRTUXB HEAD~..HEAD ':(exclude)www/crm*')
             [ -z "$CHANGED_FILES" ] && exit 0
             yarn run eslint $CHANGED_FILES
+
+      - name: Run stylelint
+          id: step_three
+          run: |
             yarn run stylelint "**/*.scss"
