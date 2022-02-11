@@ -23,6 +23,6 @@ jobs:
         run: yarn
       - name: Run ESLint
         run: |
-            CHANGED_FILES=$(git diff --name-only --diff-filter=ACMRTUXB HEAD~..HEAD ':(exclude)www/crm*')
+            CHANGED_FILES=$(git diff --name-only --diff-filter=ACMRTUXB HEAD~..HEAD ':(exclude)www/crm*' -- '*.js')
             [ -z "$CHANGED_FILES" ] && exit 0
             yarn run eslint $CHANGED_FILES
