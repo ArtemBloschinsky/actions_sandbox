@@ -27,7 +27,6 @@ jobs:
         uses: stefanoeb/eslint-action@1.0.2
         with:
           files: ${{ env.CHANGED_FILES }}
-#
 #  style-check:
 #    name: stylelint
 #    runs-on: ubuntu-latest
