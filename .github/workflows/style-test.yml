@@ -27,5 +27,18 @@ jobs:
             [ -z "$CHANGED_FILES" ] && exit 0
             yarn run eslint $CHANGED_FILES
 
-      - name: Run stylelint
-        run: yarn run stylelint "**/*.css"
+
+  variation-3:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Install modules
+        run: yarn
+      - name: Run ESLint
+        run: |
+          CHANGED_FILES=$(git diff --name-only --diff-filter=ACMRTUXB HEAD~..HEAD ':(exclude)www/crm*' | grep ".css")
+          [ -z "$CHANGED_FILES" ] && exit 0
+          yarn run stylelint $CHANGED_FILES
